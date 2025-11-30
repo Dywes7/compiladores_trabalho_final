@@ -4,7 +4,7 @@ from typing import List, Optional, Any, Tuple, Dict
 import os
 
 # IMPORTA o léxico
-from analisador_lexico import analisar_lexema, Token as LexToken
+#from analisador_lexico import analisar_lexema, Token as LexToken
 
 # TOKENS usados pelo parser
 @dataclass
@@ -16,12 +16,12 @@ class Token:
     attr: Any = None
 
 
-def tokens_from_lexer(codigo_fonte: str) -> List[Token]:
+def tokens_from_lexer(lista_lex) -> List[Token]:
     """
-    Chama o analisador léxico e adapta os tokens
-    para o formato esperado pelo Parser.
+    Converte a lista de tokens do analisador léxico
+    para o formato esperado pelo Parser (Token).
+    NÃO chama o analisador léxico de novo.
     """
-    lista_lex, _tabela = analisar_lexema(codigo_fonte)
     tokens_parser: List[Token] = []
     for t in lista_lex:
         tokens_parser.append(

@@ -23,8 +23,8 @@ def processar_arquivo(nome_arquivo: str):
     print("\nTabela de símbolos:")
     imprimir_simbolos(tabela_simbolos)
 
-    # Convertendo tokens para o formato do parser
-    tokens = tokens_from_lexer(codigo)
+    # --- converte tokens léxicos -> tokens do parser (sem rodar léxico de novo) ---
+    tokens = tokens_from_lexer(lista_tokens)
 
     # --- 2) Análise sintática ---
     parser = Parser(tokens)
